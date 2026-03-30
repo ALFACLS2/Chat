@@ -108,7 +108,7 @@
 </button>
 </header>
 <!-- Chat Canvas -->
-<main class="flex-1 overflow-y-auto px-6 py-8 space-y-8 bg-surface-container-low no-scrollbar">
+<main id="chatArea" class="flex-1 overflow-y-auto px-6 py-8 space-y-8 bg-surface-container-low no-scrollbar">
 <!-- Welcome Section (Editorial) -->
 <div class="max-w-2xl mx-auto text-center mb-12">
 <h2 class="font-headline text-3xl font-extrabold text-on-surface mb-3 tracking-tight">Selamat Datang</h2>
@@ -188,13 +188,13 @@ export default async function handler(req, res) {
 <div class="relative flex items-center gap-3">
 <!-- Input Container -->
 <div class="flex-1 relative flex items-center">
-<input class="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/20 focus:ring-primary/20 rounded-full px-6 py-3.5 pr-14 text-on-surface placeholder:text-on-surface-variant/50 font-body shadow-[0_8px_32px_rgba(44,52,55,0.04)] transition-all" placeholder="Tanyakan sesuatu..." type="text"/>
+<input id="chatInput" class="w-full bg-surface-container-lowest border-none ring-1 ring-outline-variant/20 focus:ring-primary/20 rounded-full px-6 py-3.5 pr-14 text-on-surface placeholder:text-on-surface-variant/50 font-body shadow-[0_8px_32px_rgba(44,52,55,0.04)] transition-all" placeholder="Tanyakan sesuatu..." type="text"/>
 <button class="absolute right-2 p-2 text-on-surface-variant hover:text-primary transition-colors">
 <span class="material-symbols-outlined">attachment</span>
 </button>
 </div>
 <!-- Send Button -->
-<button class="w-12 h-12 flex-shrink-0 bg-primary bg-gradient-to-b from-primary to-primary-container text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
+<button id="sendBtn" class="w-12 h-12 flex-shrink-0 bg-primary bg-gradient-to-b from-primary to-primary-container text-white rounded-full flex items-center justify-center shadow-lg active:scale-90 transition-transform">
 <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">send</span>
 </button>
 </div>
@@ -215,86 +215,66 @@ export default async function handler(req, res) {
 </div>
 </div>
 </div>
-      <script>
-const chatArea = document.getElementById("chatArea");
-const input = document.getElementById("chatInput");
-const sendBtn = document.getElementById("sendBtn");
+<script>
+document.addEventListener("DOMContentLoaded", () => {
 
-// bikin bubble user
-function addUserBubble(text) {
-  const div = document.createElement("div");
-  div.className = "flex justify-end";
+  const chatArea = document.getElementById("chatArea");
+  const input = document.getElementById("chatInput");
+  const sendBtn = document.getElementById("sendBtn");
 
-  div.innerHTML = `
-    <div class="max-w-[85%] bg-secondary-container text-on-secondary-container px-5 py-3.5 rounded-xl rounded-br-sm shadow-sm">
-      <p class="font-body text-lg">${text}</p>
-    </div>
-  `;
-
-  chatArea.appendChild(div);
-  scrollBottom();
-}
-
-// bikin bubble AI
-function addAIBubble(text) {
-  const div = document.createElement("div");
-  div.className = "flex justify-start";
-
-  div.innerHTML = `
-    <div class="max-w-[90%] bg-surface-container-lowest px-6 py-5 rounded-xl rounded-bl-sm shadow">
-      <p>${text}</p>
-    </div>
-  `;
-
-  chatArea.appendChild(div);
-  scrollBottom();
-}
-
-// auto scroll
-function scrollBottom() {
-  chatArea.scrollTop = chatArea.scrollHeight;
-}
-
-// kirim message
-async function sendMessage() {
-  const message = input.value.trim();
-  if (!message) return;
-
-  addUserBubble(message);
-  input.value = "";
-
-  // loading
-  const loading = document.createElement("div");
-  loading.innerHTML = `<p class="text-sm opacity-50">AI lagi mikir...</p>`;
-  chatArea.appendChild(loading);
-  scrollBottom();
-
-  try {
-    const res = await fetch("/api/chat", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({ message })
-    });
-
-    const data = await res.json();
-
-    loading.remove();
-    addAIBubble(data.reply);
-
-  } catch (err) {
-    loading.remove();
-    addAIBubble("Error ambil response");
+  function addUserBubble(text) {
+    const div = document.createElement("div");
+    div.className = "flex justify-end";
+    div.innerHTML = `<div class="max-w-[85%] bg-secondary-container text-on-secondary-container px-5 py-3.5 rounded-xl rounded-br-sm shadow-sm"><p>${text}</p></div>`;
+    chatArea.appendChild(div);
+    chatArea.scrollTop = chatArea.scrollHeight;
   }
-}
 
-// klik tombol
-sendBtn.onclick = sendMessage;
+  function addAIBubble(text) {
+    const div = document.createElement("div");
+    div.className = "flex justify-start";
+    div.innerHTML = `<div class="max-w-[90%] bg-surface-container-lowest px-6 py-5 rounded-xl rounded-bl-sm shadow"><p>${text}</p></div>`;
+    chatArea.appendChild(div);
+    chatArea.scrollTop = chatArea.scrollHeight;
+  }
 
-// enter
-input.addEventListener("keypress", function(e) {
-  if (e.key === "Enter") sendMessage();
+  async function sendMessage() {
+    const message = input.value.trim();
+    if (!message) return;
+
+    addUserBubble(message);
+    input.value = "";
+
+    const loading = document.createElement("div");
+    loading.innerHTML = `<p class="text-sm opacity-50">AI lagi mikir...</p>`;
+    chatArea.appendChild(loading);
+
+    try {
+      const res = await fetch("/api/chat", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ message })
+      });
+
+      const data = await res.json();
+
+      loading.remove();
+      addAIBubble(data.reply);
+
+    } catch {
+      loading.remove();
+      addAIBubble("Error ambil response");
+    }
+  }
+
+  sendBtn.onclick = sendMessage;
+
+  input.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") sendMessage();
+  });
+
 });
 </script>
 </body></html>

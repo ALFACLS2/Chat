@@ -215,4 +215,86 @@ export default async function handler(req, res) {
 </div>
 </div>
 </div>
+      <script>
+const chatArea = document.getElementById("chatArea");
+const input = document.getElementById("chatInput");
+const sendBtn = document.getElementById("sendBtn");
+
+// bikin bubble user
+function addUserBubble(text) {
+  const div = document.createElement("div");
+  div.className = "flex justify-end";
+
+  div.innerHTML = `
+    <div class="max-w-[85%] bg-secondary-container text-on-secondary-container px-5 py-3.5 rounded-xl rounded-br-sm shadow-sm">
+      <p class="font-body text-lg">${text}</p>
+    </div>
+  `;
+
+  chatArea.appendChild(div);
+  scrollBottom();
+}
+
+// bikin bubble AI
+function addAIBubble(text) {
+  const div = document.createElement("div");
+  div.className = "flex justify-start";
+
+  div.innerHTML = `
+    <div class="max-w-[90%] bg-surface-container-lowest px-6 py-5 rounded-xl rounded-bl-sm shadow">
+      <p>${text}</p>
+    </div>
+  `;
+
+  chatArea.appendChild(div);
+  scrollBottom();
+}
+
+// auto scroll
+function scrollBottom() {
+  chatArea.scrollTop = chatArea.scrollHeight;
+}
+
+// kirim message
+async function sendMessage() {
+  const message = input.value.trim();
+  if (!message) return;
+
+  addUserBubble(message);
+  input.value = "";
+
+  // loading
+  const loading = document.createElement("div");
+  loading.innerHTML = `<p class="text-sm opacity-50">AI lagi mikir...</p>`;
+  chatArea.appendChild(loading);
+  scrollBottom();
+
+  try {
+    const res = await fetch("/api/chat", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ message })
+    });
+
+    const data = await res.json();
+
+    loading.remove();
+    addAIBubble(data.reply);
+
+  } catch (err) {
+    loading.remove();
+    addAIBubble("Error ambil response");
+  }
+}
+
+// klik tombol
+sendBtn.onclick = sendMessage;
+
+// enter
+input.addEventListener("keypress", function(e) {
+  if (e.key === "Enter") sendMessage();
+});
+</script>
 </body></html>

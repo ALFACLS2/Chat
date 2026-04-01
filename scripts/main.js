@@ -4,6 +4,10 @@
 // =============================================
 
 document.addEventListener("DOMContentLoaded", () => {
+  // Inject hero image dari config
+if (C.heroImage) {
+  document.documentElement.style.setProperty('--bg-image', `url('${C.heroImage}')`);
+}
   const C = window.CONFIG;
   if (!C) return;
 

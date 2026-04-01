@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alur REC — ALFACLS2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/global.css">
+  <style>
+    /* Flow step cards */
+    .step-card {
+      position: relative;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 16px 16px 16px 56px;
+      margin-bottom: 10px;
+    }
+
+    .step-num {
+      position: absolute;
+      left: 16px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--accent-gradient);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      font-weight: 800;
+      flex-shrink: 0;
+    }
+
+    .step-title {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .step-desc {
+      font-size: 12px;
+      opacity: 0.6;
+      line-height: 1.5;
+    }
+
+    .connector {
+      width: 2px;
+      height: 10px;
+      background: rgba(255,255,255,0.15);
+      margin: 0 auto 10px 28px;
+    }
+  </style>
+</head>
+<body>
+<div class="bg-blur"></div>
+
+<div class="card">
+
+  <!-- BACK -->
+  <a href="/" class="back-btn">
+    <span class="material-symbols-outlined text-sm">arrow_back_ios</span>
+    Kembali
+  </a>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <h1>Alur Rekrutmen</h1>
+    <p class="sub">Proses seleksi dari awal hingga penempatan</p>
+  </div>
+
+  <!-- STEPS -->
+  <div class="step-card">
+    <div class="step-num">1</div>
+    <div class="step-title">Register Akun</div>
+    <div class="step-desc">Daftar akun di portal karir Alfamart melalui alfakarir.alfamart.co.id</div>
+  </div>
+  <div class="connector"></div>
+
+  <div class="step-card">
+    <div class="step-num">2</div>
+    <div class="step-title">Apply Lowongan</div>
+    <div class="step-desc">Pilih posisi yang tersedia dan submit CV + dokumen pendukung</div>
+  </div>
+  <div class="connector"></div>
+
+  <div class="step-card">
+    <div class="step-num">3</div>
+    <div class="step-title">Seleksi Administrasi</div>
+    <div class="step-desc">Tim HR melakukan screening kelengkapan berkas dan kualifikasi</div>
+  </div>
+  <div class="connector"></div>
+
+  <div class="step-card">
+    <div class="step-num">4</div>
+    <div class="step-title">Tes & Wawancara</div>
+    <div class="step-desc">Psikotes, tes kemampuan, dan interview dengan user & HR</div>
+  </div>
+  <div class="connector"></div>
+
+  <div class="step-card">
+    <div class="step-num">5</div>
+    <div class="step-title">Medical Check-Up</div>
+    <div class="step-desc">Pemeriksaan kesehatan di klinik / RS yang ditunjuk perusahaan</div>
+  </div>
+  <div class="connector"></div>
+
+  <div class="step-card">
+    <div class="step-num">6</div>
+    <div class="step-title">Penempatan & Onboarding</div>
+    <div class="step-desc">Pengumuman penempatan, tanda tangan kontrak, dan orientasi kerja</div>
+  </div>
+
+  <div class="separator"></div>
+
+  <!-- CTA -->
+  <a class="btn primary" data-link="register">
+    <span class="material-symbols-outlined text-sm">rocket_launch</span>
+    Mulai Daftar Sekarang
+  </a>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>Powered by <strong data-powered-by></strong></div>
+    <div class="mt-1" data-handle></div>
+  </div>
+
+</div>
+
+<script src="/scripts/config.js"></script>
+<script src="/scripts/main.js"></script>
+</body>
+</html>

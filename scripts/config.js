@@ -35,7 +35,7 @@ const CONFIG = {
   // ── Feature Flags ────────────────────────────
   // Set false untuk nonaktifkan tombol (tampil "coming soon")
   features: {
-    faq:         false,  // ← coming soon
+    faq:         true,  // ← coming soon
     testimonial: true,
     tanya:       true,
   },

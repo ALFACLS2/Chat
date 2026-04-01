@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tanya Box — ALFACLS2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/global.css">
+  <style>
+    .tanya-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 20px 0 10px;
+    }
+
+    .icon-circle {
+      width: 72px;
+      height: 72px;
+      background: rgba(255,142,110,0.15);
+      border: 1px solid rgba(255,142,110,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .tanya-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .tanya-desc {
+      font-size: 13px;
+      opacity: 0.6;
+      line-height: 1.6;
+      max-width: 270px;
+      margin-bottom: 24px;
+    }
+
+    .hint-list {
+      width: 100%;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 14px;
+      margin-bottom: 15px;
+      text-align: left;
+    }
+
+    .hint-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 13px;
+      opacity: 0.7;
+      margin-bottom: 8px;
+      line-height: 1.4;
+    }
+
+    .hint-item:last-child { margin-bottom: 0; }
+
+    .hint-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent-1);
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+<div class="bg-blur"></div>
+
+<div class="card">
+
+  <!-- BACK -->
+  <a href="/" class="back-btn">
+    <span class="material-symbols-outlined text-sm">arrow_back_ios</span>
+    Kembali
+  </a>
+
+  <div class="tanya-wrap">
+    <div class="icon-circle">
+      <span class="material-symbols-outlined text-[#ff8e6e] text-3xl">chat_bubble_outline</span>
+    </div>
+    <div class="tanya-title">Tanya Box</div>
+    <p class="tanya-desc">
+      Ada pertanyaan seputar rekrutmen Alfamart?<br>
+      Tim kami siap membantu kamu!
+    </p>
+  </div>
+
+  <!-- HINTS -->
+  <div class="hint-list">
+    <div class="hint-item">
+      <div class="hint-dot"></div>
+      <span>Tanya soal persyaratan dokumen dan kualifikasi</span>
+    </div>
+    <div class="hint-item">
+      <div class="hint-dot"></div>
+      <span>Info jadwal & lokasi seleksi</span>
+    </div>
+    <div class="hint-item">
+      <div class="hint-dot"></div>
+      <span>Cek status lamaran kamu</span>
+    </div>
+    <div class="hint-item">
+      <div class="hint-dot"></div>
+      <span>Pertanyaan seputar benefit & fasilitas kerja</span>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <a class="btn primary" data-link="tanya">
+    <span class="material-symbols-outlined text-sm">open_in_new</span>
+    Buka Tanya Box
+  </a>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>Powered by <strong data-powered-by></strong></div>
+    <div class="mt-1" data-handle></div>
+  </div>
+
+</div>
+
+<script src="/scripts/config.js"></script>
+<script src="/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ — ALFACLS2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/global.css">
+  <style>
+    .coming-soon-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+
+    .icon-circle {
+      width: 72px;
+      height: 72px;
+      background: rgba(255,142,110,0.15);
+      border: 1px solid rgba(255,142,110,0.3);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    .cs-title {
+      font-size: 20px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .cs-desc {
+      font-size: 13px;
+      opacity: 0.6;
+      line-height: 1.6;
+      max-width: 260px;
+    }
+  </style>
+</head>
+<body>
+<div class="bg-blur"></div>
+
+<div class="card">
+
+  <!-- BACK -->
+  <a href="/" class="back-btn">
+    <span class="material-symbols-outlined text-sm">arrow_back_ios</span>
+    Kembali
+  </a>
+
+  <div class="coming-soon-wrap">
+    <div class="icon-circle">
+      <span class="material-symbols-outlined text-[#ff8e6e] text-3xl">help_outline</span>
+    </div>
+    <div class="cs-title">FAQ Coming Soon</div>
+    <p class="cs-desc">
+      Kami sedang menyiapkan halaman FAQ.<br>
+      Sementara itu, kamu bisa langsung tanya ke Tanya Box kami!
+    </p>
+  </div>
+
+  <div class="separator"></div>
+
+  <a class="btn primary" data-link="tanya">
+    <span class="material-symbols-outlined text-sm">chat_bubble_outline</span>
+    Tanya Langsung
+  </a>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>Powered by <strong data-powered-by></strong></div>
+    <div class="mt-1" data-handle></div>
+  </div>
+
+</div>
+
+<script src="/scripts/config.js"></script>
+<script src="/scripts/main.js"></script>
+</body>
+</html>

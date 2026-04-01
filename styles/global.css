@@ -1,6 +1,6 @@
 /* ================= CONFIG ================= */
 :root {
-  --bg-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3Lgh8_SRUvo3qf5FcArMeYKdTWtuBA_QiTk38pkvc_Z0LyVNpdsN7Qfa8mc2rGmNAxKEm1t0zVLeM65jNGjNok1GRhfl35zKKM3Fqu_fNU2FcLnOd9rP6wPpPnn8oJTqaoh6b-dhnOM-Lun9PnUzbTzchcXk18nzJnCEqbNJw_2DBsdnoEcE-AecK8XrfodU3sCWAffP9kLIpVs4qihP6qLbd0fomoqCwIejwo6zal9RHEiR8_8C9QXGKlsrANE8AD1vdeUmi_Rz8');
+  --bg-image: url('none');
   --accent-gradient: linear-gradient(90deg, #ff8e6e, #ff6d8d);
   --accent-1: #ff8e6e;
   --accent-2: #ff6d8d;

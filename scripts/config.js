@@ -9,6 +9,10 @@ const CONFIG = {
   poweredBy: "REC CLS 2",
   socialHandle: "@rec_cls2_official",
 
+  heroImage: "https://res.cloudinary.com/dprt1m1wl/image/upload/v1774676745/ChatGPT_Image_Mar_28_2026_12_44_07_PM_uiti48.png", // ← tambah ini
+
+  links: { 
+
   // ── External Links ──────────────────────────
   links: {
     register: "https://alfakarir.alfamart.co.id/register",

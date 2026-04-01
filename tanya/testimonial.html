@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kata Mereka — ALFACLS2</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/global.css">
+  <style>
+    .testi-card {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+      background: rgba(0,0,0,0.3);
+      margin-bottom: 12px;
+      border: 1px solid rgba(255,255,255,0.1);
+      cursor: pointer;
+      display: block;
+      text-decoration: none;
+    }
+
+    .testi-thumb {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.7;
+      transition: opacity 0.3s ease;
+    }
+
+    .testi-card:hover .testi-thumb { opacity: 0.9; }
+
+    .play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px;
+      height: 48px;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .testi-card:hover .play-btn {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .testi-meta {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      right: 10px;
+    }
+
+    .testi-name {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .testi-role {
+      font-size: 11px;
+      opacity: 0.6;
+    }
+  </style>
+</head>
+<body>
+<div class="bg-blur"></div>
+
+<div class="card">
+
+  <!-- BACK -->
+  <a href="/" class="back-btn">
+    <span class="material-symbols-outlined text-sm">arrow_back_ios</span>
+    Kembali
+  </a>
+
+  <!-- HEADER -->
+  <div class="page-header">
+    <div class="section-title" style="margin-bottom: 4px;">
+      <span class="material-symbols-outlined text-[#ff8e6e] text-xl">video_library</span>
+      Kata Mereka
+    </div>
+    <p class="sub">Cerita nyata dari karyawan Alfamart</p>
+  </div>
+
+  <!-- VIDEO 1 — ganti href dengan link YouTube / embed -->
+  <a class="testi-card" href="https://www.youtube.com/watch?v=REPLACE_VIDEO_ID_1" target="_blank" rel="noopener noreferrer">
+    <img
+      class="testi-thumb"
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3Lgh8_SRUvo3qf5FcArMeYKdTWtuBA_QiTk38pkvc_Z0LyVNpdsN7Qfa8mc2rGmNAxKEm1t0zVLeM65jNGjNok1GRhfl35zKKM3Fqu_fNU2FcLnOd9rP6wPpPnn8oJTqaoh6b-dhnOM-Lun9PnUzbTzchcXk18nzJnCEqbNJw_2DBsdnoEcE-AecK8XrfodU3sCWAffP9kLIpVs4qihP6qLbd0fomoqCwIejwo6zal9RHEiR8_8C9QXGKlsrANE8AD1vdeUmi_Rz8"
+      alt="Testimonial 1"
+    >
+    <div class="play-btn">
+      <span class="material-symbols-outlined !text-2xl text-white">play_arrow</span>
+    </div>
+    <div class="testi-meta">
+      <div class="testi-name">Nama Karyawan 1</div>
+      <div class="testi-role">Jabatan • Lokasi</div>
+    </div>
+  </a>
+
+  <!-- VIDEO 2 — duplikat dan ganti data sesuai kebutuhan -->
+  <a class="testi-card" href="https://www.youtube.com/watch?v=REPLACE_VIDEO_ID_2" target="_blank" rel="noopener noreferrer">
+    <img
+      class="testi-thumb"
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3Lgh8_SRUvo3qf5FcArMeYKdTWtuBA_QiTk38pkvc_Z0LyVNpdsN7Qfa8mc2rGmNAxKEm1t0zVLeM65jNGjNok1GRhfl35zKKM3Fqu_fNU2FcLnOd9rP6wPpPnn8oJTqaoh6b-dhnOM-Lun9PnUzbTzchcXk18nzJnCEqbNJw_2DBsdnoEcE-AecK8XrfodU3sCWAffP9kLIpVs4qihP6qLbd0fomoqCwIejwo6zal9RHEiR8_8C9QXGKlsrANE8AD1vdeUmi_Rz8"
+      alt="Testimonial 2"
+    >
+    <div class="play-btn">
+      <span class="material-symbols-outlined !text-2xl text-white">play_arrow</span>
+    </div>
+    <div class="testi-meta">
+      <div class="testi-name">Nama Karyawan 2</div>
+      <div class="testi-role">Jabatan • Lokasi</div>
+    </div>
+  </a>
+
+  <div class="separator"></div>
+
+  <!-- CTA ke YouTube Channel -->
+  <a class="btn btn-secondary" data-link="youtube">
+    <span class="material-symbols-outlined text-sm text-[#ff8e6e]">play_circle</span>
+    Lihat Semua Video
+  </a>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>Powered by <strong data-powered-by></strong></div>
+    <div class="mt-1" data-handle></div>
+  </div>
+
+</div>
+
+<script src="/scripts/config.js"></script>
+<script src="/scripts/main.js"></script>
+</body>
+</html>

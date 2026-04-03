@@ -4,11 +4,15 @@
 // =============================================
 
 const CONFIG = {
+const CONFIG = {
   siteName: "ALFACLS2",
   tagline: "Career Guide",
   poweredBy: "REC CLS 2",
   socialHandle: "@rec_cls2_official",
-  heroImage: "https://res.cloudinary.com/dprt1m1wl/image/upload/v1774676745/ChatGPT_Image_Mar_28_2026_12_44_07_PM_uiti48.pngg",
+
+  heroImage: "https://res.cloudinary.com/dprt1m1wl/image/upload/v1774676745/ChatGPT_Image_Mar_28_2026_12_44_07_PM_uiti48.png",
+
+  links: {
 
   // ── External Links ──────────────────────────
   links: {

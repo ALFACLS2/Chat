@@ -18,10 +18,10 @@ const CONFIG = {
   },
 
   pages: {
-    flow: "../pages/flow.html",
-    faq: "../pages/faq.html",
-    tanya: "../pages/tanya.html",
-    testimonial: "../pages/testimonial.html",
+    flow: "./pages/flow.html",
+    faq: "./pages/faq.html",
+    tanya: "./pages/tanya.html",
+    testimonial: "./pages/testimonial.html",
   },
 
   social: {

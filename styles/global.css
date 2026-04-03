@@ -1,6 +1,8 @@
 /* ================= CONFIG ================= */
 :root {
-  --bg-image: url('none');
+  /* --bg-image diisi otomatis oleh main.js dari config.js → heroImage */
+  /* Fallback kalau JS belum jalan atau heroImage kosong */
+  --bg-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA3Lgh8_SRUvo3qf5FcArMeYKdTWtuBA_QiTk38pkvc_Z0LyVNpdsN7Qfa8mc2rGmNAxKEm1t0zVLeM65jNGjNok1GRhfl35zKKM3Fqu_fNU2FcLnOd9rP6wPpPnn8oJTqaoh6b-dhnOM-Lun9PnUzbTzchcXk18nzJnCEqbNJw_2DBsdnoEcE-AecK8XrfodU3sCWAffP9kLIpVs4qihP6qLbd0fomoqCwIejwo6zal9RHEiR8_8C9QXGKlsrANE8AD1vdeUmi_Rz8');
   --accent-gradient: linear-gradient(90deg, #ff8e6e, #ff6d8d);
   --accent-1: #ff8e6e;
   --accent-2: #ff6d8d;
@@ -34,6 +36,7 @@ body {
   filter: blur(25px) brightness(0.35);
   transform: scale(1.1);
   z-index: -1;
+  pointer-events: none; /* ← fix: jangan block tap/click */
 }
 
 /* ================= CARD ================= */
@@ -96,6 +99,8 @@ h1 {
   transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   font-size: 14px;
+  touch-action: manipulation;           /* ← fix tap di HP */
+  -webkit-tap-highlight-color: transparent;
 }
 
 .btn:active { transform: scale(0.97); }
